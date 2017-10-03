@@ -838,7 +838,7 @@ class MP_Node(Node):
     @classmethod
     def get_root_nodes(cls):
         """:returns: A queryset containing the root nodes in the tree."""
-        return get_result_class(cls).objects.filter(depth=1)
+        return get_result_class(cls).objects.order_by('id').filter(depth=1)
 
     @classmethod
     def get_descendants_group_count(cls, parent=None):
